@@ -1,0 +1,27 @@
+1.  Download Process.py and Main.py
+2.  Put the log file that you want to analyse at the same directory as above mentioned files
+3.  Open command prompt or terminal and navigate to the same directory
+4.  Type python Main.py -f <name of the log file>. Ensure you have python 2.x installed. 
+5.  There are 6 options available to analyse the log file. 
+
+    -u
+    Saving unique IP addresses to a flat file
+    
+    -c
+    Saving unique IP addresses with country and number of hits to a flat file
+    
+    -a
+    Saving activities per unique IP address to flat files, one file for each IP address
+
+    -s 
+    Saving all possible SQL injection entries to a flat file
+
+    --fi
+    Saving all possible remote file inclusion entries to a flat file"
+    
+    --ws
+    Saving all possible web shell entries to a flat file
+    
+6.  Example of using: python Main.py -f TestLog.log -c --fi --ws
+    It will read TestLog.log file and create three flat files for unique IP addresses with country, remote file inclusion and web shell respectively.
+    
