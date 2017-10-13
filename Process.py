@@ -225,16 +225,18 @@ class HelperClass:
                 continue
         
         #3rd method. comparison between payload parameter and domain/host name. legitimate requests usually have matching names.
-        originalRequest = originalRequest.replace('WWW','')
-        payLoad = payLoad.replace('WWW','')
+        originalRequest = originalRequest.replace('WWW.','')
+        payLoad = payLoad.replace('WWW.','')
         s2 = "/" 
-        first_index = suspiciousLine.find(s2, suspiciousLine.find(s2))
-        second_index = suspiciousLine.find(s2, suspiciousLine.find(s2)+1)
-        originalRequest = suspiciousLine[first_index:second_index]
-        payLoad = suspiciousLine[second_index:None] 
-        print originalRequest
-        print payLoad
-        print"-----------------"
+        first_index = originalRequest.find(s2, originalRequest.find(s2))
+        originalRequest = originalRequest[None:first_index]
+        
+        first_index = payLoad.find(s2, payLoad.find(s2))
+        payLoad = payLoad[None:first_index]
+        
+        if originalRequest!=payLoad:
+            return True
+        
         
     #function to make directory to contain activites per ip address
     def makeDir(self):
