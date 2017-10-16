@@ -1,0 +1,43 @@
+Please familiarize yourself with the user guide to understand the purpose of the script before reading the developer's guide.
+
+The script is written in  python 2.7.10
+
+
+Design of the script:
+
+    There are two python files: Main.py and Process.py. 
+    
+    Main.py is designed to get user's options, read the log file uploaded and save the content of the log file in an array. Then Main.py calls functions to process the array according to user's options.
+    
+    Process.py contains the functions that are called by Main.py to process the log file according to user's options. Processing Logic is in the functions. Some helper classes are created for better readability and maintenance of the code.
+    
+    
+Script improvement:
+
+    Main.py:
+    
+        1. To improve the file reading speed.
+        
+        2. To change user input options.
+    
+    Processing.py:
+    
+        1. To improve writing unique IP address logic, go to function writeUniqueIPAddress().
+
+        2. To improve writing unique IP address with country logic, go to function writeUniqueIPAddressWithCountry().
+
+        3. To improve writing all activities by unique IP address logic, go to function writeActivityPerIP(). Currently, the parsing stopped at 10000 lines of the file as its speed is slow. Developers could help by thinking of an more effective logic.
+        
+        4. To improve remote file inclusion detection logic, go to function checkFileInclusion().
+        
+        5. To improve SQLi detection logic, go to function checkSQLi().
+        
+        6. To improve webshell detection logic, go to function checkWebShell().
+        
+
+Other possible improvement:
+
+    1. Implement multi-threading to improve the performance.
+    
+    2. Currently, each log entry is stored in an array. The same array is passed in as argument for SQLi, RFI and webshell detection. The array is looped three times if user chooses all those three options. It could be optimized to looping only once for all three options to improve the performance.
+    
